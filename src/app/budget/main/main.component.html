@@ -1,0 +1,24 @@
+<h1>¿Qué necesitas?</h1>
+<hr>
+
+<form>
+
+  <div class="mb-3 form-check">
+          <input id="web" type="checkbox" (click)="webCheck($event)"  class="form-check-input" formControlName="web"> Página Web (500 €)
+  </div>
+
+  <div class="mb-3 form-check">
+          <input id="seo" type="checkbox" (click)="seoCheck($event)" class="form-check-input" formControlName="seo"> Servicios SEO (300 €)
+  </div>
+
+  <div class="mb-3 form-check">
+          <input type="checkbox" (click)="adsCheck($event)" class="form-check-input" formControlName="ads"> Campaña Google Ads (200 €)
+  </div>
+
+</form>
+
+
+<h4>Total <span class="badge bg-secondary">{{ total }}</span></h4>
+<!-- <div>
+  Total: {{ total }}
+</div> -->
