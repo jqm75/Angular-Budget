@@ -1,0 +1,24 @@
+
+<div id="panel" class="row p-3 my-2 border rounded">
+
+  <div class="col-6 p-2">
+    <label for="">Quantity of pages</label>
+  </div>
+
+  <div class="col-sm-6">
+    <input id="pagesQuantity" name="pagesQuantity" type="number" min="1" (change)="pagesEntered($event)" placeholder="Enter a number..." />
+  </div>
+
+  <div class="col-6 p-2">
+    <label for="">How many languages</label>
+  </div>
+
+  <div class="col-sm-6">
+      <input id="languagesQuantity" name="languagesQuantity" type="number" min="1" (change)="requestedLanguages($event)" placeholder="Enter a number..." />
+  </div>
+
+</div>
+
+
+
+
