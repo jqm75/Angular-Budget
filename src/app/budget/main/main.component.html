@@ -8,7 +8,7 @@
             <input id="web" type="checkbox" (click)="webCheck($event)"  class="form-check-input" > Web Page (500 €)
     </div>
 
-    <app-panel *ngIf="showPanel"></app-panel>
+    <app-panel (pagesAndLangQuantityEmitter)="receiverNumWebPages($event)" *ngIf="showPanel"></app-panel>
 
     <div class="mb-3 form-check">
             <input id="seo" type="checkbox" (click)="seoCheck($event)" class="form-check-input" > SEO Services (300 €)

@@ -89,5 +89,9 @@ export class MainComponent {
 
   }
 
+  receiverNumWebPages(webLangQuantity: Object) {
+
+    console.log(webLangQuantity)
+  }
 
 }
