@@ -50,9 +50,14 @@ export class MainComponent {
 
     if(checkButton.checked){
 
+      this.showPanel = true;
       this.quantityWeb = 1;
 
     } else {
+
+      this.showPanel = false;
+
+      this.quantityPages, this.quantityLang = 0;
 
       this.quantityWeb = 0;
 
@@ -103,7 +108,6 @@ export class MainComponent {
 
   saveQuantity(pageLangQuantity: PageLangQuantity) {
 
-    //this.total += (pageLangQuantity.quantityPages * this.pagesPrice) + (pageLangQuantity.quantityLang * this.languagesPrice);
     this.quantityPages = pageLangQuantity.quantityPages;
     this.quantityLang  = pageLangQuantity.quantityLang;
 
@@ -114,14 +118,12 @@ export class MainComponent {
 
   totalResult(){
 
-   // console.log('holi', this.quantityWeb * this.webPrice );
-
     this.total = 0;
 
     this.total += this.quantityWeb * this.webPrice
     this.total += this.quantitySeo * this.seoPrice
     this.total += this.quantityAds * this.adsPrice
-    this.total += this.pagesPrice * this.quantityLang * this.languagesPrice * this.extrasPrice
+    this.total += this.quantityPages * this.quantityLang * this.extrasPrice
 
     return this.total
 
