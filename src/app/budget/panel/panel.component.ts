@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { PageLangQuantity } from '../interfaces/page-lang-quantity';
 
 @Component({
   selector: 'app-panel',
@@ -9,21 +10,21 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class PanelComponent {
 
 
-  @Output() pagesAndLangQuantityEmitter = new EventEmitter<Object>;
+  @Output() pagesAndLangQuantityEmitter = new EventEmitter<PageLangQuantity>;
 /*
-  @Output() webPagesQuantityEmitter = new EventEmitter<Object>();
+  @Output() quantityPagesEmitter = new EventEmitter<Object>();
   @Output() webLangQuantityEmitter  = new EventEmitter<number>();
 */
 
-  private webPagesQuantity: number = 0
-  private webLangQuantity : number = 0
+  private quantityPages: number = 0
+  private quantityLang : number = 0
 
 
   pagesEntered ( event:Event ) {
 
     let pageInput = event.target as HTMLInputElement;
 
-    this.webPagesQuantity = parseInt(pageInput.value)
+    this.quantityPages = parseInt(pageInput.value)
 
     this.pageQuantityToParent()
 
@@ -33,7 +34,7 @@ export class PanelComponent {
 
     let langInput = event.target as HTMLInputElement;
 
-    this.webLangQuantity = parseInt(langInput.value)
+    this.quantityLang = parseInt(langInput.value)
 
     this.langQuantityToParent()
 
@@ -41,12 +42,12 @@ export class PanelComponent {
 
   pageQuantityToParent () {
 
-    this.pagesAndLangQuantityEmitter.emit({webPagesQuantity: this.webPagesQuantity, webLangQuantity:this.webLangQuantity});
+    this.pagesAndLangQuantityEmitter.emit({quantityPages: this.quantityPages, quantityLang:this.quantityLang});
 
   }
 
   langQuantityToParent () {
 
-    this.pagesAndLangQuantityEmitter.emit({webPagesQuantity: this.webPagesQuantity, webLangQuantity:this.webLangQuantity});
+    this.pagesAndLangQuantityEmitter.emit({quantityPages: this.quantityPages, quantityLang:this.quantityLang});
   }
 }

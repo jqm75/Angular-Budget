@@ -1,23 +1,31 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { PageLangQuantity } from '../interfaces/page-lang-quantity';
 
 
 @Component({
 
-  selector: 'app-main',
+  selector   : 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.sass']
+  styleUrls  : ['./main.component.sass']
 
 })
 
 export class MainComponent {
 
-  private webPrice: number = 500;
-  private webPages: number = 30;
-  private webLanguages: number = 30;
+  private webPrice  : number = 500;
+  private seoPrice  : number = 300;
+  private adsPrice  : number = 200;
+  private pagesPrice    : number = 0;
+  private languagesPrice: number = 0;
+  private extrasPrice: number = 30;
 
-  private webSeo  : number = 300;
-  private webAds  : number = 200;
+  private quantityPages : number = 0
+  private quantityLang  : number = 0
+  private quantityWeb   : number = 0
+  private quantitySeo   : number = 0
+  private quantityAds   : number = 0
+
 
   public total    : number = 0;
 
@@ -33,8 +41,6 @@ export class MainComponent {
 
     private fb: FormBuilder,
 
-
-
   ){}
 
 
@@ -42,19 +48,18 @@ export class MainComponent {
 
     let checkButton = event.target as HTMLInputElement;
 
-    console.log(checkButton.checked);
-
     if(checkButton.checked){
 
-      this.total = this.total + this.webPrice
-      this.showPanel = true
+      this.quantityWeb = 1;
 
     } else {
 
-      this.showPanel = false
-      this.total = this.total - this.webPrice
+      this.quantityWeb = 0;
 
     }
+
+    this.totalResult();
+
   }
 
   seoCheck( event:Event ) {
@@ -63,13 +68,18 @@ export class MainComponent {
 
     if(checkButton.checked){
 
-      this.total = this.total + this.webSeo
+      this.quantitySeo = 1;
 
     } else {
 
-      this.total = this.total - this.webSeo
+      this.quantitySeo = 0;
 
     }
+
+    this.totalResult();
+
+    console.log( this.totalResult() );
+
 
   }
 
@@ -79,19 +89,47 @@ export class MainComponent {
 
     if(checkButton.checked){
 
-      this.total = this.total + this.webAds
+      this.quantityAds = 1;
 
     } else {
 
-      this.total = this.total - this.webAds
+      this.quantityAds = 0;
 
     }
 
+    this.totalResult();
+
   }
 
-  receiverNumWebPages(webLangQuantity: Object) {
+  saveQuantity(pageLangQuantity: PageLangQuantity) {
 
-    console.log(webLangQuantity)
+    //this.total += (pageLangQuantity.quantityPages * this.pagesPrice) + (pageLangQuantity.quantityLang * this.languagesPrice);
+    this.quantityPages = pageLangQuantity.quantityPages;
+    this.quantityLang  = pageLangQuantity.quantityLang;
+
+    this.totalResult();
+
+  }
+
+
+  totalResult(){
+
+   // console.log('holi', this.quantityWeb * this.webPrice );
+
+    this.total = 0;
+
+    this.total += this.quantityWeb * this.webPrice
+    this.total += this.quantitySeo * this.seoPrice
+    this.total += this.quantityAds * this.adsPrice
+    this.total += this.pagesPrice * this.quantityLang * this.languagesPrice * this.extrasPrice
+
+    return this.total
+
   }
 
 }
+
+
+//TODO: Sumar el total  + webPagesQuantity * 30 y webLangQuantity * 30 en una función totalResult()
+
+//  (Nombre de pàgines * el nombre d'idiomes * 30)€.
