@@ -1,30 +1,29 @@
 <section id="daddySmurf" class="m-5">
-  <h1>Services</h1>
-  <hr>
 
-  <form>
+        <h1>Services</h1>
+        <hr>
 
-    <div class="mb-3 form-check">
-            <input id="web" type="checkbox" (click)="webCheck($event)"  class="form-check-input" > Web Page (500 €)
-    </div>
+        <form>
 
-    <!-- <app-panel (pagesAndLangQuantityEmitter)="receiverNumWebPages($event)" *ngIf="showPanel"></app-panel> -->
-    <app-panel (pagesAndLangQuantityEmitter)="saveQuantity($event)" *ngIf="showPanel"></app-panel>
+                <div class="mb-3 form-check">
+                        <input id="web" type="checkbox" (click)="webCheck($event)" class="form-check-input"> Web Page
+                        (500 €)
+                </div>
 
-    <div class="mb-3 form-check">
-            <input id="seo" type="checkbox" (click)="seoCheck($event)" class="form-check-input" > SEO Services (300 €)
-    </div>
+                <app-panel (pagesAndLangQuantityEmitter)="saveQuantity($event)" *ngIf="showPanel"></app-panel>
 
-    <div class="mb-3 form-check">
-            <input type="checkbox" (click)="adsCheck($event)" class="form-check-input"> Google Ads Campaign (200 €)
-    </div>
+                <div class="mb-3 form-check">
+                        <input id="seo" type="checkbox" (click)="seoCheck($event)" class="form-check-input"> SEO
+                        Services (300 €)
+                </div>
 
-  </form>
+                <div class="mb-3 form-check">
+                        <input id="ads" type="checkbox" (click)="adsCheck($event)" class="form-check-input"> Google Ads
+                        Campaign (200 €)
+                </div>
 
+        </form>
 
-  <h4>Total fee: <span class="badge bg-secondary">{{ total }}</span></h4>
+        <h4>Total fee: <span class="badge bg-secondary">{{ total }}</span></h4>
+
 </section>
-
-<!-- <div>
-  Total: {{ total }}
-</div> -->

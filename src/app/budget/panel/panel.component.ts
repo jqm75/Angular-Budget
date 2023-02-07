@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { PageLangQuantity } from '../interfaces/page-lang-quantity';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-panel',
@@ -15,6 +16,17 @@ export class PanelComponent {
   @Output() quantityPagesEmitter = new EventEmitter<Object>();
   @Output() webLangQuantityEmitter  = new EventEmitter<number>();
 */
+
+  public budgetForm : FormGroup = this.fb.group({
+
+
+  })
+
+  constructor (
+
+    private fb: FormBuilder,
+
+  ){}
 
   private quantityPages: number = 0
   private quantityLang : number = 0
