@@ -19,6 +19,8 @@ export class PanelComponent {
 
   public budgetForm : FormGroup = this.fb.group({
 
+    pages: ['', [Validators.required, Validators.minLength(1)] ],
+    languages: ['', [Validators.required, Validators.minLength(1)] ]
 
   })
 

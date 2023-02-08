@@ -1,21 +1,27 @@
 
-<div id="panel" class="row p-3 my-2 border rounded">
+<div [formGroup]="budgetForm" id="panel" class="row p-3 my-2 border rounded">
 
   <div class="col-6 p-2">
     <label for="">Quantity of pages</label>
   </div>
 
   <div class="col-sm-6">
-    <input id="quantityPages" name="quantityPages" type="number" min="1" (change)="pagesEntered($event)" placeholder="Enter a number..." />
+    <input id="quantityPages" name="quantityPages" formControlName="pages" class="form-control" type="number" min="1" (change)="pagesEntered($event)" placeholder="Enter a number..." />
   </div>
+<!--   <span class="form-text text-danger">
+    Debe contener almenos 1 página.
+  </span> -->
 
   <div class="col-6 p-2">
     <label for="">How many languages</label>
   </div>
 
   <div class="col-sm-6">
-      <input id="quantityLang" name="quantityLang" type="number" min="1" (change)="requestedLanguages($event)" placeholder="Enter a number..." />
+      <input id="quantityLang" name="quantityLang" formControlName="languages"  class="form-control"  type="number" min="1" (change)="requestedLanguages($event)" placeholder="Enter a number..." />
   </div>
+<!--   <span class="form-text text-danger">
+    Debe contener almenos 1 idioma.
+  </span> -->
 
 </div>
 
