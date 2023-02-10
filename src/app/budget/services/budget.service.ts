@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Budget } from '../interfaces/budget.interface'
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +34,6 @@ export class BudgetService {
     return this.total
 
   }
+
 
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PageLangQuantity } from '../interfaces/page-lang-quantity';
+import { Budget } from '../interfaces/budget.interface';
 import { BudgetService } from '../services/budget.service';
 
 
@@ -18,7 +18,8 @@ export class MainComponent {
 
   constructor (
 
-    private budgetService: BudgetService
+    private budgetService: BudgetService,
+
 
   ){}
 
@@ -85,7 +86,7 @@ export class MainComponent {
 
   }
 
-  saveQuantity(pageLangQuantity: PageLangQuantity) {
+  saveQuantity(pageLangQuantity: Budget) {
 
     this.budgetService.quantityPages = pageLangQuantity.quantityPages;
     this.budgetService.quantityLang  = pageLangQuantity.quantityLang;
@@ -102,7 +103,5 @@ export class MainComponent {
 
 }
 
-
-//TODO: Sumar el total  + webPagesQuantity * 30 y webLangQuantity * 30 en una función totalResult()
 
 //  (Nombre de pàgines * el nombre d'idiomes * 30)€.
