@@ -3,12 +3,10 @@ import { Budget } from '../interfaces/budget.interface';
 import { BudgetService } from '../services/budget.service';
 import { Router, Routes } from '@angular/router';
 
-
 @Component({
 
   selector   : 'app-main',
   templateUrl: './main.component.html',
-  styleUrls  : ['./main.component.sass']
 
 })
 

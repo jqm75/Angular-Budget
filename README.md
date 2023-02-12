@@ -1,6 +1,16 @@
-# S7AngularBudget
+# S7-Angular: Budget
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.2.
+
+I've also used **Bootstrap** and **Booststrap icons**, plus **animate.css**
+
+Install this too:
+
+`npm i bootstrap@5.3.0-alpha1`
+
+`npm i bootstrap-icons`
+
+`npm install animate.css --save`
 
 ## Development server
 

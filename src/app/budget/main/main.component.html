@@ -1,29 +1,38 @@
-<section id="daddySmurf" class="m-5">
+<section id="parent" class="card m-5">
+  <div class="card-header">
+    <span class="btn btn-outline-primary float-start mt-1 me-1" routerLink="/welcome-page" >
+      <i class="bi bi-house-fill"></i>
+    </span>
 
-        <h1>Services</h1>
-        <hr>
+    <h1>Services</h1>
+  </div>
 
-        <form>
+  <div class="card-body">
+    <form>
 
-                <div class="mb-3 form-check">
-                        <input id="web" type="checkbox" (click)="webCheck($event)" class="form-check-input"> Web Page
-                        (500 €)
-                </div>
+      <div class="mb-3 form-check">
+        <input id="web" type="checkbox" (click)="webCheck($event)" class="form-check-input"> Web Page
+        (500 €)
+      </div>
 
-                <app-panel (pagesAndLangQuantityEmitter)="saveQuantity($event)" *ngIf="showPanel"></app-panel>
+      <app-panel (pagesAndLangQuantityEmitter)="saveQuantity($event)" *ngIf="showPanel"></app-panel>
 
-                <div class="mb-3 form-check">
-                        <input id="seo" type="checkbox" (click)="seoCheck($event)" class="form-check-input"> SEO
-                        Services (300 €)
-                </div>
+      <div class="mb-3 form-check">
+        <input id="seo" type="checkbox" (click)="seoCheck($event)" class="form-check-input"> SEO
+        Services (300 €)
+      </div>
 
-                <div class="mb-3 form-check">
-                        <input id="ads" type="checkbox" (click)="adsCheck($event)" class="form-check-input"> Google Ads
-                        Campaign (200 €)
-                </div>
+      <div class="mb-3 form-check">
+        <input id="ads" type="checkbox" (click)="adsCheck($event)" class="form-check-input"> Google Ads
+        Campaign (200 €)
+      </div>
 
-        </form>
+    </form>
+  </div>
 
-        <h4>Total fee: <span class="badge bg-secondary">{{ total }}</span></h4>
+  <div class="card-footer text-muted">
+    <h4>Total fee: <span class="badge bg-secondary">{{ total }}</span></h4>
+  </div>
 
 </section>
+

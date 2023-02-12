@@ -7,7 +7,6 @@ import { BudgetService } from '../services/budget.service';
 
   selector: 'app-panel',
   templateUrl: './panel.component.html',
-  styleUrls: ['./panel.component.sass']
 
 })
 

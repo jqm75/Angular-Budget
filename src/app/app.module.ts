@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './budget/main/main.component';
 import { PanelComponent } from './budget/panel/panel.component';
 import { RouterModule } from '@angular/router';
+import { WelcomePageComponent } from './budget/welcome/welcome-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    PanelComponent
+    PanelComponent,
+    WelcomePageComponent
   ],
   imports: [
     BrowserModule,
