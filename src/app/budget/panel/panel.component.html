@@ -9,7 +9,8 @@
 
     <div (click)="calculateAddAndSubtract('pages')" class="btn btn-primary me-1"><i class="bi bi-dash-lg"></i></div>
 
-    <input formControlName="pages" class="form-control" type="number" (change)="pagesEntered($event)" />
+    <input formControlName="pages" class="form-control" type="number"/>
+    <!-- (change)="pagesEntered($event)" -->
 
     <div (click)="calculateAddAndSubtract('pages', true)" class="btn btn-primary ms-1"><i class="bi bi-plus-lg"></i></div>
 
@@ -26,7 +27,8 @@
   <div class="d-flex col-sm-6">
     <div (click)="calculateAddAndSubtract('languages')" class="btn btn-primary me-1"><i class="bi bi-dash-lg"></i></div>
 
-    <input formControlName="languages"  class="form-control"  type="number" (change)="requestedLanguages($event)" />
+    <!-- (change)="requestedLanguages($event)" -->
+    <input formControlName="languages"  class="form-control"  type="number"/>
 
     <div (click)="calculateAddAndSubtract('languages', true)" class="btn btn-primary ms-1"><i class="bi bi-plus-lg"></i></div>
   </div>

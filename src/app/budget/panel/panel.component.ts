@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Budget } from '../interfaces/budget.interface';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BudgetService } from '../services/budget.service';
@@ -11,19 +11,10 @@ import { BudgetService } from '../services/budget.service';
 
 })
 
-export class PanelComponent {
+export class PanelComponent implements OnInit {
 
 
   @Output() pagesAndLangQuantityEmitter = new EventEmitter<Budget>;
-  @Output() totalEmitter = new EventEmitter<number>;
-
-  /*
-  @Output() quantityPagesEmitter = new EventEmitter<Object>();
-  @Output() webLangQuantityEmitter  = new EventEmitter<number>();
-  */
-
- pages: number = 1;
- languages: number = 1;
 
   constructor (
 
@@ -35,13 +26,10 @@ export class PanelComponent {
   ngOnInit(): void {
 
     const total = this.budgetService.totalResult()
-    this.totalEmitter.emit(total)
-  }
 
-/*  calculateIncDec(inputName: string, increment: boolean = false): void {
-    let nameControl = this.myOptionsForm.get(inputName)!.value;
-    increment ? nameControl++ : nameControl--
-    this.myOptionsForm.get(inputName)!.patchValue(nameControl) */
+    this.budgetForm.valueChanges.subscribe(form => this.pagesAndLangQuantityEmitter.emit(form));
+
+  }
 
   calculateAddAndSubtract(inputPagLang: string, add: boolean = false ): void {
 
@@ -53,7 +41,7 @@ export class PanelComponent {
 
   public budgetForm : FormGroup = this.fb.group({
 
-    pages: [1, [Validators.required, Validators.min(1)] ],   // [1, [Validators.required, Validators.pattern(/^[1-9]\d*$/)]],
+    pages: [1, [Validators.required, Validators.min(1)] ],
     languages: [1, [Validators.required, Validators.min(1)] ]
 
   })
@@ -78,7 +66,7 @@ export class PanelComponent {
     }
   } */
 
-  private quantityPages: number = 0
+  /* private quantityPages: number = 0
   private quantityLang : number = 0
 
   pagesEntered ( event:Event ) {
@@ -107,8 +95,8 @@ export class PanelComponent {
 
   }
 
-  langQuantityToParent () {
+   langQuantityToParent () {
 
     this.pagesAndLangQuantityEmitter.emit({quantityPages: this.quantityPages, quantityLang:this.quantityLang});
-  }
+  } */
 }

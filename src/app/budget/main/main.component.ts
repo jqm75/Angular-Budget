@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Budget } from '../interfaces/budget.interface';
 import { BudgetService } from '../services/budget.service';
+import { Router, Routes } from '@angular/router';
 
 
 @Component({
@@ -11,17 +12,24 @@ import { BudgetService } from '../services/budget.service';
 
 })
 
-export class MainComponent {
+export class MainComponent implements OnInit{
 
   public total      : number = 0;
   public showPanel  : Boolean = false;
 
   constructor (
 
-    private budgetService: BudgetService,
-
+    private router       : Router,
+    private budgetService: BudgetService
 
   ){}
+
+  ngOnInit(): void {
+    this.router.getCurrentNavigation();
+
+    // console.log( this.router.getCurrentNavigation()!.extractedUrl.queryParams );
+
+  }
 
 
   webCheck( event:Event ){
@@ -32,6 +40,8 @@ export class MainComponent {
 
       this.showPanel = true;
       this.budgetService.quantityWeb = 1;
+      this.budgetService.quantityPages = 1;
+      this.budgetService.quantityLang = 1;
 
     } else {
 
@@ -88,8 +98,8 @@ export class MainComponent {
 
   saveQuantity(pageLangQuantity: Budget) {
 
-    this.budgetService.quantityPages = pageLangQuantity.quantityPages;
-    this.budgetService.quantityLang  = pageLangQuantity.quantityLang;
+    this.budgetService.quantityPages = pageLangQuantity.pages;
+    this.budgetService.quantityLang  = pageLangQuantity.languages;
 
     this.totalResult();
 
@@ -102,6 +112,3 @@ export class MainComponent {
   }
 
 }
-
-
-//  (Nombre de pàgines * el nombre d'idiomes * 30)€.

@@ -1,6 +1,6 @@
 export interface Budget {
 
-  quantityPages : number,
-  quantityLang  : number
+  pages : number,
+  languages  : number
 
 }
