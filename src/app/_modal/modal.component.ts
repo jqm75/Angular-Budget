@@ -15,7 +15,7 @@ export class ModalComponent {
 
   open(typeOfMessage: string) {
     this.modalType = typeOfMessage;
-    this.modalService.open(this.content).result.then((result) => {
+    this.modalService.open(this.content, { centered: true }).result.then((result) => {
       console.log(result);
     }, (reason) => {
       console.log(reason);

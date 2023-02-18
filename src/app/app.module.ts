@@ -8,7 +8,8 @@ import { MainComponent } from './budget/main/main.component';
 import { PanelComponent } from './budget/panel/panel.component';
 import { RouterModule } from '@angular/router';
 import { WelcomePageComponent } from './budget/welcome/welcome-page.component';
-import { ModalComponent } from './budget/modal/modal.component';
+import { ModalComponent } from './_modal/modal.component';
+import { BudgetListComponent } from './budget-list/budget-list.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ModalComponent } from './budget/modal/modal.component';
     MainComponent,
     PanelComponent,
     WelcomePageComponent,
-    ModalComponent
+    ModalComponent,
+    BudgetListComponent
   ],
   imports: [
     BrowserModule,

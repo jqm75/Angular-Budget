@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, Routes } from '@angular/router';
 
 import { Budget } from '../interfaces/budget.interface';
-import { BudgetService } from '../services/budget.service';
+import { BudgetService } from '../../services/budget.service';
 
 @Component({
   selector   : 'app-main',

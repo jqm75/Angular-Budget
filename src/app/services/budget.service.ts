@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Budget } from '../interfaces/budget.interface'
+import { Budget } from '../budget/interfaces/budget.interface'
 
 @Injectable({
   providedIn: 'root'
