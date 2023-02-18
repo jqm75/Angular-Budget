@@ -1,0 +1,38 @@
+<span
+  type="button"
+  class="bi bi bi-info-circle text-primary"
+  data-bs-toggle="modal"
+  (click)="open('pagesModal')"
+  #myButton>
+</span>
+
+<ng-template #content let-modal>
+  <div class="modal-body">
+    <div class="modal-body" *ngIf="this.typeOfMessage === 'pagesModal'; else languagesModal">
+      Select the number of pages you want. You must choose at least one.
+    </div>
+    <ng-template #languagesModal>
+      <div class="modal-body">Select the number of languages you need for your website. You must choose at least one.</div>
+    </ng-template>
+  </div>
+</ng-template>
+
+
+
+
+
+<!-- <div class="modal fade"  role="dialog" #myModal>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body" *ngIf="pages; else languages">
+        Select the number of pages you want. You must choose at least one.
+      </div>
+
+      <ng-template #languages>
+        <div class="modal-body">Select the number of languages you need for your website. You must choose at least one.</div>
+      </ng-template>
+
+    </div>
+  </div>
+</div> -->

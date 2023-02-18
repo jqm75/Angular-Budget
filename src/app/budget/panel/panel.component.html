@@ -2,7 +2,9 @@
 <div [formGroup]="budgetForm" id="panel" class="row p-3 m-2 border rounded animate__animated animate__flipInX">
 
   <div class="col-6 p-2">
-    <label for="">Quantity of pages</label>
+    <label for="">Quantity of pages
+      <app-modal [typeOfMessage]="'pagesModal'"></app-modal>
+    </label>
   </div>
 
   <div class="d-flex col-sm-6 mb-1">
@@ -21,7 +23,9 @@
   </span> -->
 
   <div class="col-6 p-2">
-    <label for="">How many languages</label>
+    <label for="">How many languages
+      <app-modal [typeOfMessage]="'languagesModal'"></app-modal>
+    </label>
   </div>
 
   <div class="d-flex col-sm-6">

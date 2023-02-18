@@ -8,13 +8,15 @@ import { MainComponent } from './budget/main/main.component';
 import { PanelComponent } from './budget/panel/panel.component';
 import { RouterModule } from '@angular/router';
 import { WelcomePageComponent } from './budget/welcome/welcome-page.component';
+import { ModalComponent } from './budget/modal/modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     PanelComponent,
-    WelcomePageComponent
+    WelcomePageComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
