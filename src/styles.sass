@@ -2,7 +2,8 @@
 @import "../node_modules/bootstrap-icons/font/bootstrap-icons.css"
 @import "../node_modules/animate.css/animate.css"
 
-
+*
+  transition: all 0.15s ease-out
 
 body, html
   height: 100%
@@ -12,8 +13,21 @@ body, html
 
 #saveBudget
   width: 150px
+  
+#container
+  left: 25%
+  position: relative
+  
+  app-budget-list
+      left: -50%
+      z-index: 0
+      position: relative
+      top: 0
+      height: 100%
 
 #parent
+  z-index: 2
+  position: relative
   width: 470px
 
 #panel
@@ -43,4 +57,12 @@ body, html
     outline: 0
     box-shadow: 0 0 0 0.3rem rgba(220,53,69,.25)
 
+.linkBudgetHistory
+  cursor: pointer
+ 
+#container.show
+  left: 0
+
+  app-budget-list
+    left: 0  
 

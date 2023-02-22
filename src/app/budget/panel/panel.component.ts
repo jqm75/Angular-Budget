@@ -12,7 +12,6 @@ import { BudgetService } from '../../services/budget.service';
 
 export class PanelComponent implements OnInit {
 
-
   @Output() pagesAndLangQuantityEmitter = new EventEmitter<Budget>;
 
   constructor (
@@ -35,6 +34,8 @@ export class PanelComponent implements OnInit {
     let valueControl = this.budgetForm.get(inputPagLang)!.value;
     add ? valueControl++ : valueControl--
     this.budgetForm.get(inputPagLang)!.patchValue(valueControl)
+
+    // TODO: Si el valor es igual a 1, no debe ejecutar valueControl--
 
   }
 

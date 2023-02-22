@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Budget } from '../budget/interfaces/budget.interface'
+import { Budget } from '../budget/interfaces/budget.interface';
+import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -7,12 +9,10 @@ import { Budget } from '../budget/interfaces/budget.interface'
 
 export class BudgetService {
 
-  private webPrice   : number = 500;
-  private seoPrice   : number = 300;
-  private adsPrice   : number = 200;
-  private extrasPrice: number = 30;
-  // private pagesPrice    : number = 0;
-  // private languagesPrice: number = 0;
+  private webPrice     : number = 500
+  private seoPrice     : number = 300
+  private adsPrice     : number = 200
+  private extrasPrice  : number = 30
 
   public quantityPages : number = 0
   public quantityLang  : number = 0
@@ -20,7 +20,14 @@ export class BudgetService {
   public quantitySeo   : number = 0
   public quantityAds   : number = 0
 
-  public total : number = 0;
+  public clientName    : string = ''
+  public budgetName    : string = ''
+
+  public total         : number = 0
+
+  public showBudgetList: boolean = false
+
+  public budgetList    : Budget [] = []
 
   totalResult(){
 
@@ -35,5 +42,39 @@ export class BudgetService {
 
   }
 
+  saveDataBudget(budgetDataForm:FormGroup){
 
+    let budget: Budget = {
+
+      id          : this.budgetList.length+1,
+      web         : this.webPrice,
+        pages     : this.quantityPages,
+        languages : this.quantityLang,
+
+      seo         : this.seoPrice,
+      ads         : this.adsPrice,
+
+      clientName  : budgetDataForm.value.clientName,
+      budgetName  : budgetDataForm.value.budgetName
+
+    }
+
+    if (budgetDataForm.invalid) {
+
+      budgetDataForm.markAllAsTouched();
+      return;
+
+    }
+
+    budget.total = this.totalResult()
+
+    this.budgetList.push(budget);
+
+    console.log(this.budgetList);
+
+
+
+
+
+  }
 }

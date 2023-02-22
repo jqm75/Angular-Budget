@@ -1,40 +1,40 @@
-<div class="row p-3 mb-2">
-  <div class="col">
-      <button class="btn btn-primary ms-2 float-end" routerLink="/main">
-        <i class="bi bi-plus-circle-fill"></i> New budget
-      </button>
+<aside id="budgetList" class="card">
+  <div class="cardHeader d-flex card-header justify-content-between">
+    <h2><i class="bi bi-clock-history text-primary"></i> Budget history</h2>
+      <a class="closeButton text-decoration-none fs-3" (click)="showBudgetList()">
+        <i class="bi bi-x-square-fill"></i>
+      </a>
   </div>
-</div>
 
-<div class="row">
-  <div class="col">
-    <h1 class="text-center">Budget list</h1>
-    <hr>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th header="col">#</th>
-          <th header="col">Client</th>
-          <th header="col">Budget</th>
-          <th header="col">Date</th>
-          <th header="col">Total</th>
-          <th header="col"></th>
-          <th header="col"></th>
-        </tr>
-      </thead>
-    <!--   <tbody>
-        <tr *ngFor="let list of budgetList; let i = index">
-          <th header="row">{{ list.id }}</th>
-          <td>{{ list.clientName }}</td>
-          <td>{{ list.budgetName }}</td>
-          <td>{{ list.date | date }}</td>
-          <td>{{ list.total | number }} €</td>
+      <section id="budgetListBody" class="card-body">
+        <div id="divTable" class="col">
+          <table class="table table-hover">
+            <thead class="bg-white sticky-top">
+              <tr>
+                <th header="col">#</th>
+                <th header="col">Client</th>
+                <th header="col">Budget</th>
+                <th header="col">Date</th>
+                <th header="col">Total</th>
+<!--                 <th header="col"></th>
+                <th header="col"></th> -->
+              </tr>
+            </thead>
+            <tbody id="tableBody" class="table-group-divider">
+              <tr *ngFor="let list of budgetList; let i = index">
+                <th header="row">{{ list.id }}</th>
+                <td>{{ list.clientName }}</td>
+                <td>{{ list.budgetName }}</td>
+                <td>{{ list.date | date }}</td>
+                <td>{{ list.total | number }} €</td>
 
-          <td><span type="button" class="text-primary bi bi-pencil-fill" (click)="deleteBudget(i)"></span></td>
-          <td><span type="button" class="text-danger bi bi-trash-fill"></span></td>
+                <!-- <td><span type="button" class="text-primary bi bi-pencil-fill" (click)="deleteBudget(i)"></span></td>
+                  <td><span type="button" class="text-danger bi bi-trash-fill"></span></td> -->
 
-        </tr>
-      </tbody> -->
-    </table>
-  </div>
-</div>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+</aside>
