@@ -81,7 +81,7 @@ export class MainComponent implements OnInit {
   saveDataBudget () {
 
     this.budgetService.saveDataBudget(this.budgetDataForm)
-    if (!this.budgetService.showBudgetList) this.showBudgetList()
+    //if (!this.budgetService.showBudgetList) this.showBudgetList()
 
   }
 

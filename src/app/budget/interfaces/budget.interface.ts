@@ -7,10 +7,10 @@ export interface Budget {
   pages      : number,
   languages  : number,
 
-  id?        : number,
+  id        : number,
   budgetName : string,
   clientName : string,
-  date?      : Date,
+  date       : Date,
 
   total?     : number
 

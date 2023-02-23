@@ -29,14 +29,17 @@ export class PanelComponent implements OnInit {
 
   }
 
-  calculateAddAndSubtract(inputPagLang: string, add: boolean = false ): void {
+  calculateAddAndSubtract(inputPagLang: string, add: boolean = false, increment: number = 1): void {
+    const valueControl = this.budgetForm.get(inputPagLang);
+  
+    if (valueControl) {
+      const newValue = add ? valueControl.value + increment : Math.max(valueControl.value - increment, 1);
+      valueControl.patchValue(newValue);
+    }
 
-    let valueControl = this.budgetForm.get(inputPagLang)!.value;
+   /*  let valueControl = this.budgetForm.get(inputPagLang)!.value;
     add ? valueControl++ : valueControl--
-    this.budgetForm.get(inputPagLang)!.patchValue(valueControl)
-
-    // TODO: Si el valor es igual a 1, no debe ejecutar valueControl--
-
+    this.budgetForm.get(inputPagLang)!.patchValue(valueControl) */
   }
 
   public budgetForm : FormGroup = this.fb.group({

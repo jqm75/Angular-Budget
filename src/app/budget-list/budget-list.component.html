@@ -16,25 +16,22 @@
                 <th header="col">Budget</th>
                 <th header="col">Date</th>
                 <th header="col">Total</th>
-<!--                 <th header="col"></th>
-                <th header="col"></th> -->
+                <th header="col"></th>
               </tr>
             </thead>
             <tbody id="tableBody" class="table-group-divider">
               <tr *ngFor="let list of budgetList; let i = index">
                 <th header="row">{{ list.id }}</th>
-                <td>{{ list.clientName }}</td>
-                <td>{{ list.budgetName }}</td>
-                <td>{{ list.date | date }}</td>
-                <td>{{ list.total | number }} €</td>
-
-                <!-- <td><span type="button" class="text-primary bi bi-pencil-fill" (click)="deleteBudget(i)"></span></td>
-                  <td><span type="button" class="text-danger bi bi-trash-fill"></span></td> -->
-
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
+                <td><small>{{ list.clientName }}</small></td>
+                <td><small>{{ list.budgetName }}</small></td>
+                <td><small>{{ list.date | date }}</small></td>
+                <td><small>{{ list.total | number }} €</small></td>
+                <!-- <td><span type="button" class="text-primary bi bi-pencil" ></span></td> -->
+                <td><span type="button" class="text-secondary bi bi-trash3" (click)="deleteBudget(i)"></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
 </aside>

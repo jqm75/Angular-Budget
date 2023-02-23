@@ -12,7 +12,7 @@
       <a class=" linkBudgetHistory text-decoration-none" (click)="showBudgetList()" >Budget history <i class="bi bi-clock-history "></i></a>
     </div>
 
-    <form [formGroup]="budgetDataForm" (ngSubmit)="saveDataBudget()" autocomplete="off">
+    <form id="budgetForm" [formGroup]="budgetDataForm" (ngSubmit)="saveDataBudget()" autocomplete="off">
       <div class="card-body">
 
         <div class="mb-3 form-check">
