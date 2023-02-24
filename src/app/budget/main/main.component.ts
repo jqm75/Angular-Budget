@@ -97,7 +97,7 @@ export class MainComponent implements OnInit {
   }
 
   deleteError (){
-    const checkboxList = document.querySelectorAll('input[type=checkbox].error');
+    const checkboxList = document.querySelectorAll('.budgetCheckbox .error');
 
     for (let i = 0; i < checkboxList.length; i++) {
       let checkbox = checkboxList[i] as HTMLInputElement;
