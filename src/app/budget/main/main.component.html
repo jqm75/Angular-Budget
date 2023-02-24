@@ -15,7 +15,7 @@
     <form id="budgetForm" [formGroup]="budgetDataForm" (ngSubmit)="saveDataBudget()" autocomplete="off">
       <div class="card-body">
 
-        <div class="mb-3 form-check">
+        <div class="budgetCheckbox mb-3 form-check">
           <input id="web" type="checkbox" (click)="webCheck($event)" class="form-check-input"> Web Page
           (500 €)
         </div>
@@ -27,12 +27,12 @@
 
         <app-panel (pagesAndLangQuantityEmitter)="saveQuantity($event)" *ngIf="showPanel"></app-panel>
 
-        <div class="mb-3 form-check">
+        <div class="budgetCheckbox mb-3 form-check">
           <input id="seo" type="checkbox" (click)="seoCheck($event)" class="form-check-input"> SEO
           Services (300 €)
         </div>
 
-        <div class="mb-3 form-check">
+        <div class="budgetCheckbox mb-3 form-check">
           <input id="ads" type="checkbox" (click)="adsCheck($event)" class="form-check-input"> Google Ads
           Campaign (200 €)
         </div>
@@ -60,9 +60,10 @@
         </div>
 
         <div class="d-flex align-items-center justify-content-center">
-          <button id="saveBudget" type="submit" class="btn btn-primary mx-5 mb-3"> <!-- [disabled]="budgetDataForm.invalid" -->
+          <button id="saveBudget" type="submit" class="btn btn-primary mx-5 mb-3" > <!-- [disabled]="budgetDataForm.invalid" -->
             <i class="bi bi-save"></i> Save budget</button>
         </div>
+
       </div>
     </form>
 

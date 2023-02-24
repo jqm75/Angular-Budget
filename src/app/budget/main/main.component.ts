@@ -16,7 +16,6 @@ export class MainComponent implements OnInit {
   public showPanel = false;
 
   public budgetDataForm : FormGroup = this.fb.group({
-
     clientName: ['', [Validators.required, Validators.minLength(3)] ],
     budgetName: ['', [Validators.required, Validators.minLength(3)] ]
   })
@@ -28,9 +27,7 @@ export class MainComponent implements OnInit {
   ) {}
 
   invalidField( clientName: string ) {
-
     return this.budgetDataForm.controls[clientName].errors && this.budgetDataForm.controls[clientName].touched
-
   }
 
   ngOnInit(): void {
@@ -48,18 +45,24 @@ export class MainComponent implements OnInit {
     this.budgetService.quantityPages = checkButton.checked ? 1 : 0;
     this.budgetService.quantityLang = checkButton.checked ? 1 : 0;
     this.totalResult();
+
+    this.deleteError();
   };
 
   seoCheck = (event: Event) => {
     const checkButton = event.target as HTMLInputElement;
     this.budgetService.quantitySeo = checkButton.checked ? 1 : 0;
     this.totalResult();
+
+    this.deleteError();
   };
 
   adsCheck = (event: Event) => {
     const checkButton = event.target as HTMLInputElement;
     this.budgetService.quantityAds = checkButton.checked ? 1 : 0;
     this.totalResult();
+
+    this.deleteError();
   };
 
   saveQuantity = (pageLangQuantity: Budget) => {
@@ -79,12 +82,27 @@ export class MainComponent implements OnInit {
   };
 
   saveDataBudget () {
-
+    if ( this.total != 0)
     this.budgetService.saveDataBudget(this.budgetDataForm)
     //if (!this.budgetService.showBudgetList) this.showBudgetList()
-
+    else {
+      const checkboxList = document.querySelectorAll('input[type=checkbox]'); // con document y querySelectorAll buscamos todos los checkbox de la página, se podría cambiar ('input[type=checkbox]') por un la clase .budgetCheckbox
+    
+    for (let i = 0; i < checkboxList.length; i++) {
+      let checkbox = checkboxList[i] as HTMLInputElement;
+      checkbox.classList.add('error')
+    }
+  }
+    
   }
 
+  deleteError (){
+    const checkboxList = document.querySelectorAll('input[type=checkbox].error');
 
+    for (let i = 0; i < checkboxList.length; i++) {
+      let checkbox = checkboxList[i] as HTMLInputElement;
+      checkbox.classList.remove('error')
+    }
+  }
 
 }

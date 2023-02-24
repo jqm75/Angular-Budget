@@ -9,8 +9,8 @@ import { BudgetService } from '../services/budget.service';
 
 export class BudgetListComponent {
 
-  public budgetList: Budget[] = [];
-  
+  public budgetList: Budget[] = []; 
+  public searchText: string = "";
   public currentOrder = this.sortById;
 
   constructor (
@@ -40,6 +40,13 @@ export class BudgetListComponent {
       return 0;
     })
   }
+
+  resetBudgetList(){
+
+    this.budgetList = this.budgetService.budgetList
+    this.sortById()
+
+  }
   
   sortByDate(){
     this.currentOrder = this.sortByDate;
@@ -53,6 +60,21 @@ export class BudgetListComponent {
   deleteBudget(index: number) {
     this.budgetList.splice(index, 1);
   }
+  
+  searchByBudgetName(searchText: string){
+    
+    this.budgetList = this.budgetService.budgetList
+    this.budgetList = this.budgetList.filter((bg) => {
+      return bg.budgetName.toLowerCase().indexOf(searchText.toLowerCase()) > -1;
+    })
+    this.currentOrder();
+  
+  }
+  /* deleteSearch(){
+    this.searchText = "";
+    this.goBack();
+    this.currentOrder();
+  } */
   
 }
 

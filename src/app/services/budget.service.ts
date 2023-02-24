@@ -48,7 +48,7 @@ export class BudgetService {
   saveDataBudget(budgetDataForm:FormGroup){
 
     let budget: Budget = {
-      //id          : this.budgetList.length+1,
+      
       id          : this.generateUniqueId(),
       web         : this.webPrice,
         pages     : this.quantityPages,
@@ -74,7 +74,7 @@ export class BudgetService {
     budget.total = this.totalResult()
 
     this.budgetList.push(budget);
-
+    
     console.log(this.budgetList);
 
   }
