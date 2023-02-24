@@ -41,6 +41,16 @@ export class BudgetListComponent {
     })
   }
 
+  sortByBudget(){
+    this.currentOrder = this.sortByBudget;
+    this.budgetList = this.budgetList.sort((a: Budget, b: Budget) => {
+      if(a.budgetName > b.budgetName) return 1;
+      if(a.budgetName < b.budgetName) return -1;
+      return 0;
+    })
+  }
+
+
   resetBudgetList(){
 
     this.budgetList = this.budgetService.budgetList
