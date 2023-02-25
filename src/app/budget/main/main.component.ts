@@ -84,6 +84,7 @@ export class MainComponent implements OnInit {
   saveDataBudget () {
     if ( this.total != 0)
     this.budgetService.saveDataBudget(this.budgetDataForm)
+    //this.budgetService.saveToLocalStorage(this.budgetService)
     //if (!this.budgetService.showBudgetList) this.showBudgetList()
     else {
       const checkboxList = document.querySelectorAll('input[type=checkbox]'); // con document y querySelectorAll buscamos todos los checkbox de la página, se podría cambiar ('input[type=checkbox]') por un la clase .budgetCheckbox

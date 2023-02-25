@@ -68,7 +68,10 @@ export class BudgetListComponent {
   }
 
   deleteBudget(index: number) {
+
     this.budgetList.splice(index, 1);
+    localStorage.setItem('budgetList', JSON.stringify(this.budgetList));
+    
   }
   
   searchByBudgetName(searchText: string){
