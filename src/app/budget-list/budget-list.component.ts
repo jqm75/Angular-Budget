@@ -67,6 +67,15 @@ export class BudgetListComponent {
     })
   }
 
+  sortByTotal(){
+    this.currentOrder = this.sortByTotal;
+    this.budgetList = this.budgetList.sort((a: Budget, b: Budget) => {
+      if((a.total && b.total) && a.total > b.total) return 1;
+      if((a.total && b.total) && a.total < b.total) return -1;
+      return 0;
+    })
+  }
+
   deleteBudget(index: number) {
 
     this.budgetList.splice(index, 1);
