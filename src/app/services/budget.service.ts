@@ -10,6 +10,8 @@ import { Budget } from '../budget/interfaces/budget.interface';
 
 export class BudgetService {
 
+  public showPanel     = false
+
   private webPrice     : number = 500
   private seoPrice     : number = 300
   private adsPrice     : number = 200

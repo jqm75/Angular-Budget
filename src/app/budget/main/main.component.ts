@@ -12,13 +12,25 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 export class MainComponent implements OnInit {
 
-  public total     = 0;
-  public showPanel = false;
+  public budgetForm! : FormGroup
+  public total      = 0
+  //public showPanel = false;
 
   public budgetDataForm : FormGroup = this.fb.group({
     clientName: ['', [Validators.required, Validators.minLength(3)] ],
     budgetName: ['', [Validators.required, Validators.minLength(3)] ]
   })
+
+  get showPanel() {
+
+      return this.budgetService.showPanel
+  }
+  
+  set showPanel(value: any) {
+
+    this.budgetService.showPanel = value
+
+  }
 
   constructor(
     private router: Router,
@@ -82,19 +94,33 @@ export class MainComponent implements OnInit {
   };
 
   saveDataBudget () {
-    if ( this.total != 0)
-    this.budgetService.saveDataBudget(this.budgetDataForm)
-    //this.budgetService.saveToLocalStorage(this.budgetService)
-    //if (!this.budgetService.showBudgetList) this.showBudgetList()
-    else {
-      const checkboxList = document.querySelectorAll('input[type=checkbox]'); // con document y querySelectorAll buscamos todos los checkbox de la página, se podría cambiar ('input[type=checkbox]') por un la clase .budgetCheckbox
-    
-    for (let i = 0; i < checkboxList.length; i++) {
-      let checkbox = checkboxList[i] as HTMLInputElement;
-      checkbox.classList.add('error')
+    console.log(this.budgetDataForm);
+    if (this.total != 0) {
+      this.budgetService.saveDataBudget(this.budgetDataForm);
+      this.budgetService.showPanel = false;
+      this.resetForm()
+    } else {
+      const checkboxList = document.querySelectorAll('input[type=checkbox]'); // Con document y querySelectorAll buscamos todos los checkbox de la página, se podría cambiar ('input[type=checkbox]') por la clase .budgetCheckbox
+      for (let i = 0; i < checkboxList.length; i++) {
+        let checkbox = checkboxList[i] as HTMLInputElement;
+        checkbox.classList.add('error');
+      }
     }
   }
+
+  resetForm() {  
+      
+    this.budgetDataForm.reset(); 
+    const checkboxes = document.querySelectorAll('input[type=checkbox]');
+    checkboxes.forEach((checkbox) => {
+      (checkbox as HTMLInputElement).checked = false;
+    });
+    this.budgetService.quantityWeb = 0;
+    this.budgetService.quantityPages = 0;
+    this.budgetService.quantityLang = 0;
+    console.log(this.budgetService);
     
+    this.totalResult()
   }
 
   deleteError (){

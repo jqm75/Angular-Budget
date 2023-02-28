@@ -37,9 +37,6 @@ export class PanelComponent implements OnInit {
       valueControl.patchValue(newValue);
     }
 
-   /*  let valueControl = this.budgetForm.get(inputPagLang)!.value;
-    add ? valueControl++ : valueControl--
-    this.budgetForm.get(inputPagLang)!.patchValue(valueControl) */
   }
 
   public budgetForm : FormGroup = this.fb.group({
@@ -49,57 +46,4 @@ export class PanelComponent implements OnInit {
 
   })
 
- /*  add(pag: string) {
-
-    if (pag === 'pages') {
-      this.quantityPages++;
-    }
-    if (pag === 'languages') {
-      this.quantityLang++;
-    }
-  }
-
-  substract(lang: string) {
-
-    if (lang === 'pages' && this.quantityPages > 1) {
-      this.quantityPages--;
-    }
-    if (lang === 'languages' && this.quantityLang > 1) {
-      this.quantityLang--;
-    }
-  } */
-
-  /* private quantityPages: number = 0
-  private quantityLang : number = 0
-
-  pagesEntered ( event:Event ) {
-
-    let pageInput = event.target as HTMLInputElement;
-
-    this.quantityPages = parseInt(pageInput.value)
-
-    this.pageQuantityToParent()
-
-  }
-
-  requestedLanguages ( event:Event ) {
-
-    let langInput = event.target as HTMLInputElement;
-
-    this.quantityLang = parseInt(langInput.value)
-
-    this.langQuantityToParent()
-
-  }
-
-  pageQuantityToParent () {
-
-    this.pagesAndLangQuantityEmitter.emit({quantityPages: this.quantityPages, quantityLang:this.quantityLang});
-
-  }
-
-   langQuantityToParent () {
-
-    this.pagesAndLangQuantityEmitter.emit({quantityPages: this.quantityPages, quantityLang:this.quantityLang});
-  } */
 }
