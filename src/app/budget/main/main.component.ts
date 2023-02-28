@@ -118,7 +118,6 @@ export class MainComponent implements OnInit {
     this.budgetService.quantityWeb = 0;
     this.budgetService.quantityPages = 0;
     this.budgetService.quantityLang = 0;
-    console.log(this.budgetService);
     
     this.totalResult()
   }
