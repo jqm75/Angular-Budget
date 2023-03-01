@@ -1,5 +1,7 @@
 # S7-Angular: Budget
 
+![Budget](src/assets/budget.jpg "Budget")
+
 A small form to create a budget for the creation of a website marking different options and updating the price depending on what is selected: Number of pages, available languages, Seo campaign and Google Ads...
 
 
@@ -16,6 +18,3 @@ I've also used **Bootstrap** and **Booststrap icons**, plus **animate.css**
 ### [Animate CSS](https://animate.style/)
 `npm install animate.css --save`
 
-
-ng s
-ç
