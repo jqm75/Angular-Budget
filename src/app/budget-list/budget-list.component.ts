@@ -9,9 +9,10 @@ import { BudgetService } from '../services/budget.service';
 
 export class BudgetListComponent {
 
-  public budgetList: Budget[] = []; 
-  public searchText: string = "";
+  public budgetList   : Budget[] = []; 
+  public searchText   : string = "";
   public currentOrder = this.sortById;
+  public text_search  : any = '';
 
   constructor (
 
