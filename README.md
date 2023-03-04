@@ -7,6 +7,8 @@ A small form to create a budget for the creation of a website marking different 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.2.
 
+Run `ng serve -o` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
 I've also used **Bootstrap** and **Booststrap icons**, plus **animate.css**
 
 ## Install this too:
